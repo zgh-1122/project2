@@ -1,0 +1,52 @@
+/* src/pages/OurJourney.css */
+.journey-page-wrapper {
+  padding: 4rem 2rem;
+  background-image: linear-gradient(rgba(15, 118, 110, 0.85), rgba(19, 78, 74, 0.9)), url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.journey-content-box {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.97);
+  border: 3px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+}
+
+.journey-header { text-align: center; margin-bottom: 4rem; }
+.journey-header h1 { font-size: 2.2rem; color: #0f766e; font-weight: 800; }
+.journey-header p { color: #475569; font-weight: 500; margin-top: 0.4rem; }
+
+.timeline-layout { position: relative; max-width: 850px; margin: 0 auto; }
+.timeline-layout::after { content: ''; position: absolute; width: 4px; background: #0f766e; top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+
+.timeline-segment { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
+
+.segment-badge {
+  position: absolute; width: 54px; height: 54px; background: white; border: 3px solid #14b8a6;
+  color: #0f766e; border-radius: 50%; text-align: center; line-height: 48px; font-weight: 800;
+  font-size: 0.95rem; top: 20px; z-index: 10;
+}
+
+.left-align { left: 0; }
+.right-align { left: 50%; }
+.left-align .segment-badge { right: -27px; }
+.right-align .segment-badge { left: -27px; }
+
+.segment-card { background: white; border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+.segment-card:hover { border-color: #14b8a6; }
+.segment-img { width: 100%; height: 160px; object-fit: cover; }
+.segment-body { padding: 1.2rem; }
+.segment-body h3 { color: #0f766e; font-weight: 700; font-size: 1.2rem; margin-bottom: 0.4rem; }
+.segment-body p { color: #475569; font-size: 0.9rem; line-height: 1.5; }
+
+@media (max-width: 768px) {
+  .timeline-layout::after { left: 27px; }
+  .timeline-segment { width: 100%; padding-left: 55px; padding-right: 15px; }
+  .left-align, .right-align { left: 0; }
+  .left-align .segment-badge, .right-align .segment-badge { left: 0; }
+}

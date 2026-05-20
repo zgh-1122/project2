@@ -1,0 +1,289 @@
+/* src/pages/Visas.css */
+.visas-page-wrapper {
+  padding: 4rem 2rem;
+  background-image: linear-gradient(rgba(15, 118, 110, 0.85), rgba(19, 78, 74, 0.9)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.visas-content-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.97);
+  border: 3px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+}
+
+.visas-header { text-align: center; margin-bottom: 3.5rem; }
+.visas-header h2 { font-size: 2.2rem; color: #0f766e; font-weight: 800; }
+.visas-header p { color: #475569; font-weight: 500; margin-top: 0.4rem; }
+
+/* Scroll Animate Architecture Variables */
+.reveal-wrapper {
+  opacity: 0;
+  transform: translateY(35px) scale(0.96);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 3 Column Balanced Micro-Size Grid Layout */
+.visas-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.visa-compact-card {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.visa-compact-card:hover {
+  border-color: #14b8a6;
+  transform: translateY(-4px);
+}
+
+.visa-img-container {
+  height: 140px;
+  position: relative;
+}
+
+.visa-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+.visa-type-tag {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: rgba(15, 118, 110, 0.95);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.visa-compact-body { padding: 1.2rem; display: flex; flex-direction: column; flex-grow: 1; }
+.visa-compact-body h3 { font-size: 1.15rem; color: #1e293b; font-weight: 700; margin-bottom: 0.5rem; }
+
+.visa-mini-specs { flex-grow: 1; }
+.visa-mini-specs p { font-size: 0.85rem; color: #475569; margin-bottom: 0.3rem; }
+.visa-mini-specs strong { color: #0f766e; }
+
+.initiate-btn {
+  margin-top: 1rem;
+  background: transparent;
+  border: 2px solid #0f766e;
+  color: #0f766e;
+  padding: 0.55rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.initiate-btn:hover { background: #0f766e; color: white; }
+
+/* Validation Error UI Text Rule */
+.validation-error-text {
+  color: #ef4444;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+/* Modal layers */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(19, 78, 74, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 440px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px; right: 20px;
+  background: transparent; border: none;
+  font-size: 1.8rem; color: #64748b; cursor: pointer;
+}
+
+@media (max-width: 950px) { .visas-compact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 650px) { .visas-compact-grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   ADDED SYSTEM FOR EXPANDED DOSSIER INPUT FIELDS (DO NOT REMOVE)
+   ========================================================================== */
+
+/* Automatically grows the card width to display dual-column inputs beautifully */
+.modal-box.extended-visa-form-box {
+  max-width: 680px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+}
+
+/* Form block control setup */
+.visa-modal-scrollable-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Row-splitting architecture to map components side by side */
+.form-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.form-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-input-block label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.form-input-block input,
+.form-input-block select {
+  padding: 0.7rem;
+  border: 1px solid #14b8a6;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: #1e293b;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.form-input-block input:focus,
+.form-input-block select:focus {
+  border-color: #0f766e;
+}
+
+/* Red marker for targeted validation bounds */
+.input-error-border {
+  border-color: #ef4444 !important;
+}
+
+/* Digital Scans & Document Upload Area */
+.form-document-upload-matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: #f8fafc;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #14b8a6;
+  text-align: left;
+}
+
+.upload-node {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.upload-node label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.upload-node input[type="file"] {
+  font-size: 0.85rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.full-width-node {
+  grid-column: span 2;
+}
+
+/* Fees Checklist Block Alignment */
+.fees-checkbox-block {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  text-align: left;
+  background: #f0fdfa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #14b8a6;
+}
+
+.fees-checkbox-block input[type="checkbox"] {
+  margin-top: 0.25rem;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.fees-checkbox-block label {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #334155;
+  cursor: pointer;
+}
+
+/* Custom alignment for master execute switch */
+.visa-submit-master-btn {
+  background: #0f766e;
+  color: white;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.visa-submit-master-btn:hover {
+  background: #134e4a;
+}
+
+/* Quick responsive adaptation inside form rows */
+@media (max-width: 600px) {
+  .form-grid-row, .form-document-upload-matrix {
+    grid-template-columns: 1fr;
+  }
+  .full-width-node {
+    grid-column: span 1;
+  }
+  .modal-box.extended-visa-form-box {
+    padding: 1.5rem 1rem;
+  }
+}

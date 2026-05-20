@@ -1,0 +1,98 @@
+/* src/pages/SuccessStories.css */
+.stories-page-container {
+  padding: 4rem 2rem;
+  background-image: linear-gradient(rgba(15, 118, 110, 0.85), rgba(19, 78, 74, 0.9)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.stories-master-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.97);
+  border: 3px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+}
+
+.stories-header { text-align: center; margin-bottom: 3.5rem; }
+.stories-header h2 { font-size: 2.2rem; color: #0f766e; font-weight: 800; }
+.stories-header p { color: #475569; font-weight: 500; margin-top: 0.4rem; }
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.story-profile-node {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.story-profile-node:hover { border-color: #14b8a6; transform: translateY(-4px); }
+
+.story-node-avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #14b8a6;
+  margin: 0 auto 1.2rem auto;
+}
+
+.story-node-body h3 { font-size: 1.2rem; color: #1e293b; font-weight: 700; }
+
+.success-badge {
+  display: inline-block;
+  background: #ccfbf1;
+  color: #0f766e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin: 0.6rem 0 1rem 0;
+}
+
+.target-lbl { font-size: 0.9rem; color: #475569; margin-bottom: 1.2rem; }
+.target-lbl strong { color: #0f766e; }
+
+.inspect-btn {
+  background: #0f766e;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.inspect-btn:hover { background: #14b8a6; }
+
+.loader-screen { text-align: center; padding: 10rem 0; color: white; }
+.spinner { width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.8s infinite linear; margin: 0 auto 1rem auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 968px) { .stories-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 650px) { .stories-grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   ADDED: Scroll-Driven Micro Animation Engine
+   ========================================================================== */
+.reveal-wrapper {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Jab intersection observer page intersection trace karega tab active hogi */
+.fade-in-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

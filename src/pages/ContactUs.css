@@ -1,0 +1,41 @@
+/* src/pages/ContactUs.css */
+.contact-page-wrapper {
+  padding: 5rem 2rem;
+  background-image: linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.88)), url('https://images.unsplash.com/photo-1472214222541-d510753a8707?q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.contact-card-box {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.96);
+  border: 3px solid #e2e8f0;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.contact-split-grid { display: grid; grid-template-columns: 45% 55%; }
+
+.contact-branding-side { background: linear-gradient(135deg, #0f766e, #134e4a); padding: 4rem 3rem; color: white; display: flex; flex-direction: column; justify-content: center; }
+.contact-branding-side h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; }
+.contact-branding-side p { color: #ccfbf1; line-height: 1.6; }
+.contact-node-list { margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; }
+.contact-node-list p { font-size: 0.95rem; margin-bottom: 0.8rem; color: white; }
+.contact-node-list strong { color: #22d3ee; }
+
+.contact-fields-side { padding: 4rem 3rem; background: white; }
+.field-block { margin-bottom: 1.4rem; }
+.field-block label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 0.4rem; }
+.field-block input, .field-block textarea { width: 100%; padding: 0.8rem 1rem; border: 3px solid #e2e8f0; border-radius: 10px; outline: none; }
+.field-block input:focus, .field-block textarea:focus { border-color: #14b8a6; }
+
+.submit-form-btn { width: 100%; background: #0f766e; color: white; border: none; padding: 0.9rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: background 0.2s; }
+.submit-form-btn:hover { background: #14b8a6; }
+
+.form-success-alert { text-align: center; padding: 4rem 1rem; }
+.form-success-alert h3 { color: #0f766e; font-size: 1.6rem; margin-bottom: 0.5rem; font-weight: 800; }
+
+@media (max-width: 768px) { .contact-split-grid { grid-template-columns: 1fr; } }
